@@ -7,6 +7,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -38,6 +39,9 @@ public class Employee {
 
 	@OneToOne(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Address address;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Company company;
 
 	public Employee() {
 	}
